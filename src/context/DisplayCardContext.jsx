@@ -5,17 +5,27 @@ const DisplayCardContext = createContext();
 const DisplayCardProvider = ({ children }) => {
 
     const storedCard = localStorage.getItem('isStoredCards');
-    
+    const storedFilterd = localStorage.getItem('isStoredFiltered');
+
     const [isCards, setIsCards] = useState(storedCard ? JSON.parse(storedCard) : false);
+    const [isFilter, setIsFilter] = useState(storedFilterd ? JSON.parse(storedFilterd) : 'Status');
+
+    const getFilter = (value) => {
+        setIsFilter(value);
+    }
 
     const value = {
         isCards,
-        setIsCards
+        setIsCards,
+        isFilter,
+        setIsFilter,
+        getFilter
     }
 
     useEffect(() => {
         localStorage.setItem('isStoredCards', JSON.stringify(isCards));
-    }, [isCards]);
+        localStorage.setItem('isStoredFiltered', JSON.stringify(isFilter));
+    }, [isCards, isFilter]);
 
     return (
         <DisplayCardContext.Provider value={value}>
