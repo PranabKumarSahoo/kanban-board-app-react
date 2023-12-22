@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
 import { GiSettingsKnobs } from "react-icons/gi";
 import { IoIosArrowDown } from "react-icons/io";
+import { useCards } from "../context/DisplayCardContext";
 
 const Header = () => {
+
+    const { getFilter } = useCards();
 
     const [open, setOpen] = useState(false);
 
     const handleClick = () => {
         setOpen(!open);
+    }
+
+    const handleChange = (value) => {
+        getFilter(value);
     }
 
     return (
@@ -29,7 +36,10 @@ const Header = () => {
                             >
                                 <div className='flex justify-between items-center overflow-hidden'>
                                     <p className='text-[#8D8D8D]'>Grouping</p>
-                                    <select className='border border-1 px-4 py-1 rounded-md outline-none bg-white'>
+                                    <select
+                                        className='border border-1 px-4 py-1 rounded-md outline-none bg-white'
+                                        onChange={(e) => handleChange(e.target.value)}
+                                    >
                                         <option>Status</option>
                                         <option>User</option>
                                         <option>Priority</option>
