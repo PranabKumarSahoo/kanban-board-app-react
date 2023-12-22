@@ -5,7 +5,7 @@ import { useCards } from "../context/DisplayCardContext";
 
 const Header = () => {
 
-    const { getFilter } = useCards();
+    const { getFilter, isFilter } = useCards();
 
     const [open, setOpen] = useState(false);
 
@@ -39,6 +39,7 @@ const Header = () => {
                                     <select
                                         className='border border-1 px-4 py-1 rounded-md outline-none bg-white'
                                         onChange={(e) => handleChange(e.target.value)}
+                                        value={isFilter}
                                     >
                                         <option>Status</option>
                                         <option>User</option>
