@@ -11,7 +11,7 @@ const Header = () => {
     }
 
     return (
-        <div className='flex justify-between p-4 px-6 shadow-sm bg-white'>
+        <div className='flex justify-between p-4 px-5 shadow-sm bg-white'>
             <div className='relative'>
                 <button
                     className='flex items-center gap-3 w-[100%] text-md px-2 py-1 rounded-md shadow-md border-2 text-[#626262] bg-white'

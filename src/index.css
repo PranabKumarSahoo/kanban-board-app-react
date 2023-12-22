@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #767676;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: transparent;
+}
+
+.spinner-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 10px;
+}
+
+.spinner {
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-top: 2px solid #373737;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 0.2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

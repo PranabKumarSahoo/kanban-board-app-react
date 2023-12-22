@@ -72,22 +72,6 @@ const TicketList = () => {
     const [tickets, setTickets] = useState(null);
     const [users, setUsers] = useState(null);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch(
-                    'https://tfyincvdrafxe7ut2ziwuhe5cm0xvsdu.lambda-url.ap-south-1.on.aws/ticketAndUsers'
-                );
-                const result = await response.json();
-                setTickets(result.tickets);
-                setUsers(result.users);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        };
-        fetchData();
-    }, []);
-
     if (!tickets || !users) {
         return <Spinner />;
     }
