@@ -7,10 +7,13 @@ import { FaCircleXmark, FaPlus } from "react-icons/fa6";
 import { HiDotsHorizontal } from "react-icons/hi";
 import { ImPacman } from "react-icons/im";
 import Spinner from '../components/Spinner';
+import { useTheme } from '../context/ThemeContext';
 
 const Hero = () => {
 
-    const { isCards, setIsCards, isFilter, isOrdered, isUser, setIsUser } = useCards();
+    const { isCards, isFilter, isOrdered } = useCards();
+
+    const { isDarkMode } = useTheme();
 
     const groupingStatusCards = {};
     const groupingUserCards = {};
@@ -104,7 +107,7 @@ const Hero = () => {
 
     return (
         <div
-            className='flex flex-col md:flex-row justify-between py-4 px-5 bg-[#f4f5f8] h-screen'
+            className={`flex flex-col md:flex-row justify-between py-4 px-5 bg-[#f4f5f8] h-screen ${isDarkMode ? 'bg-black' : 'bg-white text-black'}`}
         >
             {
                 !groupedCards ? <Spinner /> :
@@ -113,7 +116,7 @@ const Hero = () => {
                             cardsArray.map((item, index) => (
                                 <div
                                     key={index}
-                                    className='flex flex-col gap-2 h-auto md:h-[92vh] w-full md:w-[285px]'
+                                    className={`flex flex-col gap-2 h-auto md:h-[92vh] w-full md:w-[285px] ${isDarkMode ? 'bg-black' : 'bg-white text-black'}`}
                                 >
                                     <div className='flex items-center justify-between p-2'>
                                         <div className='flex items-center gap-2'>
@@ -121,7 +124,7 @@ const Hero = () => {
                                                 className={`${item === "In progress" ? '-rotate-[135deg]' : ''}`}>
                                                 {getStatusIcon(item)}
                                             </span>
-                                            <span className='text-[#373737] font-semibold'>{item}</span>
+                                            <span className={`font-semibold ${isDarkMode ? 'text-[#808080]' : 'text-black'}`}>{item}</span>
                                             <span className='text-[#808080]'>{groupedCards[item]?.length || 0}</span>
                                         </div>
                                         <div className='flex gap-1'>

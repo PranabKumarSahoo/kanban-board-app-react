@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { DisplayCardProvider } from './context/DisplayCardContext.jsx'
+import { ThemeProvider } from './context/ThemeContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <DisplayCardProvider>
-      <App />
-    </DisplayCardProvider>
+    <ThemeProvider>
+      <DisplayCardProvider>
+        <App />
+      </DisplayCardProvider>
+    </ThemeProvider>
   </React.StrictMode>,
 )

@@ -6,11 +6,13 @@ import { FaRegCircle, FaCheckCircle } from "react-icons/fa";
 import { FaCircleXmark } from "react-icons/fa6";
 import { ImPacman } from "react-icons/im";
 import { useCards } from '../context/DisplayCardContext';
-
+import { useTheme } from '../context/ThemeContext';
 
 const Card = ({ id, title, tag, userId, status, priority }) => {
 
     const { isFilter, isUser } = useCards();
+
+    const { isDarkMode } = useTheme();
 
     const user = isUser.find((user) => user.id === userId);
 
@@ -51,9 +53,9 @@ const Card = ({ id, title, tag, userId, status, priority }) => {
     }
 
     return (
-        <div className='flex flex-col justify-center gap-2 py-3 px-5 w-[285px]  bg-white rounded-md shadow-lg border-2 border-[#e6e7eb]'>
+        <div className={`flex flex-col justify-center gap-2 py-3 px-5 w-[285px]  bg-white rounded-md shadow-lg border-[1px] border-[#e6e7eb] ${isDarkMode ? 'bg-[#04070C]' : 'bg-white'}`}>
             <div className='flex justify-between'>
-                <p className='text-[#8D8D8D]'>{id}</p>
+                <p className={`${isDarkMode ? 'text-[#8d8d8d]' : 'text-black'}`}>{id}</p>
                 <div className='flex items-center'>
                     {
                         isFilter !== "User" ?
@@ -74,7 +76,7 @@ const Card = ({ id, title, tag, userId, status, priority }) => {
                                 {getStatusIcon(status)}
                             </span> : ''
                     }
-                    <span>{title}</span>
+                    <span className={`${isDarkMode ? 'text-white' : 'text-black'}`}>{title}</span>
                 </p>
             </div>
             <div className='flex items-center gap-2 text-[#8D8D8D] text-sm'>
