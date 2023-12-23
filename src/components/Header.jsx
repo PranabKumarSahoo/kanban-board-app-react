@@ -4,7 +4,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { useCards } from "../context/DisplayCardContext";
 
 const Header = () => {
-    const { getFilter, isFilter } = useCards();
+    const { getFilter, isFilter, getOrdered, isOrdered } = useCards();
     const [open, setOpen] = useState(false);
     const dropdownRef = useRef(null);
 
@@ -12,8 +12,12 @@ const Header = () => {
         setOpen(!open);
     }
 
-    const handleChange = (value) => {
+    const handleGroupChange = (value) => {
         getFilter(value);
+    }
+
+    const handleOrderChange = (value) => {
+        getOrdered(value);
     }
 
     const handleOutsideClick = (e) => {
@@ -51,7 +55,7 @@ const Header = () => {
                                     <p className='text-[#8D8D8D]'>Grouping</p>
                                     <select
                                         className='border border-1 px-4 py-1 rounded-md outline-none bg-white'
-                                        onChange={(e) => handleChange(e.target.value)}
+                                        onChange={(e) => handleGroupChange(e.target.value)}
                                         value={isFilter}
                                     >
                                         <option>Status</option>
@@ -61,7 +65,11 @@ const Header = () => {
                                 </div>
                                 <div className='flex justify-between items-center overflow-hidden'>
                                     <p className='text-[#8D8D8D]'>Ordering</p>
-                                    <select className='border border-1 px-4 py-1 rounded-md outline-none bg-white'>
+                                    <select
+                                        className='border border-1 px-4 py-1 rounded-md outline-none bg-white'
+                                        onChange={(e) => handleOrderChange(e.target.value)}
+                                        value={isOrdered}
+                                    >
                                         <option>Priority</option>
                                         <option>Title</option>
                                     </select>

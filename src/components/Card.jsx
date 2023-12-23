@@ -10,7 +10,9 @@ import { useCards } from '../context/DisplayCardContext';
 
 const Card = ({ id, title, tag, userId, status, priority }) => {
 
-    const { isFilter } = useCards();
+    const { isFilter, isUser } = useCards();
+
+    console.log(isUser);
 
     // const { id, title, tag, priority, userId } = card;
 

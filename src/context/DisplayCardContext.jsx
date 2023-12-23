@@ -6,14 +6,22 @@ const DisplayCardProvider = ({ children }) => {
 
     const storedCard = localStorage.getItem('isStoredCards');
     const storedFilterd = localStorage.getItem('isStoredFiltered');
+    const storedOrdered = localStorage.getItem('isStoredOrdered');
     const storedUser = localStorage.getItem('isStoredUser');
+
+    console.log(storedUser);
 
     const [isCards, setIsCards] = useState(storedCard ? JSON.parse(storedCard) : false);
     const [isFilter, setIsFilter] = useState(storedFilterd ? JSON.parse(storedFilterd) : 'Status');
-    const [isUser, setIsUser] = useState(storedUser ? JSON.parse(storedUser) : false);
+    const [isOrdered, setIsOrdered] = useState(storedOrdered ? JSON.parse(storedOrdered) : 'Priority');
+    const [isUser, setIsUser] = useState(storedUser ? JSON.parse(storedUser) : []);
 
     const getFilter = (value) => {
         setIsFilter(value);
+    }
+
+    const getOrdered = (value) => {
+        setIsOrdered(value);
     }
 
     // initial states
@@ -22,16 +30,20 @@ const DisplayCardProvider = ({ children }) => {
         setIsCards,
         isFilter,
         setIsFilter,
+        isOrdered,
+        setIsOrdered,
         isUser,
         setIsUser,
-        getFilter
+        getFilter,
+        getOrdered
     }
 
     useEffect(() => {
         localStorage.setItem('isStoredCards', JSON.stringify(isCards));
         localStorage.setItem('isStoredFiltered', JSON.stringify(isFilter));
+        localStorage.setItem('isStoredOrdered', JSON.stringify(isOrdered));
         localStorage.setItem('isStoredUser', JSON.stringify(isUser));
-    }, [isCards, isFilter, isUser]);
+    }, [isCards, isFilter, isOrdered, isUser]);
 
     return (
         <DisplayCardContext.Provider value={value}>

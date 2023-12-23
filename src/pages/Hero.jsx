@@ -9,7 +9,7 @@ import { ImPacman } from "react-icons/im";
 
 const Hero = () => {
 
-    const { isCards, setIsCards, isFilter, isUser } = useCards();
+    const { isCards, setIsCards, isFilter, isOrdered, isUser, setIsUser } = useCards();
 
     const groupingStatusCards = {};
     const groupingUserCards = {};
@@ -72,6 +72,7 @@ const Hero = () => {
                 );
                 const result = await response.json();
                 setIsCards(result.tickets);
+                setIsUser(result.users);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -84,6 +85,11 @@ const Hero = () => {
                 setGroupedCards(groupingStatusCards);
                 break;
             case "User":
+                userName.sort((a, b) => {
+                    const cardsA = groupingUserCards[a]?.length || 0;
+                    const cardsB = groupingUserCards[b]?.length || 0;
+                    return cardsB - cardsA;
+                });
                 setCardsArray(userName);
                 setGroupedCards(groupingUserCards);
                 break;
@@ -94,12 +100,23 @@ const Hero = () => {
             default:
                 break;
         }
+
+        switch (isOrdered) {
+            case "Priority":
+                
+                break;
+            case "Title":
+
+                break;
+            default:
+                break;
+        }
     }, [isFilter]);
 
 
     return (
         <div
-            className='flex flex-col md:flex-row justify-between p-4 px-5 bg-[#f4f5f8] h-screen'
+            className='flex flex-col md:flex-row justify-between py-4 px-5 bg-[#f4f5f8] h-screen'
         >
             {
                 cardsArray.map((item, index) => (
