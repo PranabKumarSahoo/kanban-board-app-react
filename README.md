@@ -50,7 +50,8 @@ The project has the following folder structure:
 The Hero component is the main display component that renders Kanban cards based on their status, user, or priority. It utilizes React Context to manage state related to cards, filters, and ordering.
 
 **Usage:**
-```import { Hero } from './components';
+```js
+import { Hero } from './components';
 import { DisplayCardProvider } from './context/DisplayCardContext';
 
 const App = () => {
@@ -79,7 +80,7 @@ Methods
 `handleOutsideClick(e: Event)`: Closes the dropdown menu when clicking outside.
 
 **Usage:**
-```
+```js
 import { Header } from './components';
 
 const App = () => {
@@ -113,7 +114,7 @@ It also provides functions to update these states:
 - `setIsUser`: Sets the state of the user.
 
 **Usage:**
-```
+```js
 import { DisplayCardProvider, useCards } from './context/DisplayCardContext';
 
 const ExampleComponent = () => {
