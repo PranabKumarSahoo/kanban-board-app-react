@@ -107,7 +107,7 @@ const Hero = () => {
 
     return (
         <div
-            className={`flex flex-col md:flex-row justify-between py-4 px-5  h-screen ${isDarkMode ? 'bg-black' : 'bg-[#f4f5f8] text-black'}`}
+            className={`flex flex-col md:flex-row justify-between py-4 px-5 h-[100%] ${isDarkMode ? 'bg-black' : 'bg-[#f4f5f8] text-black'}`}
         >
             {
                 !groupedCards ? <Spinner /> :
@@ -116,7 +116,7 @@ const Hero = () => {
                             cardsArray.map((item, index) => (
                                 <div
                                     key={index}
-                                    className={`flex flex-col gap-2 h-auto md:h-[92vh] w-full md:w-[285px] ${isDarkMode ? 'bg-black' : 'text-black'}`}
+                                    className={`flex flex-col gap-2 h-[100%] md:h-[92vh] w-full md:w-[285px] ${isDarkMode ? 'bg-black' : 'text-black'}`}
                                 >
                                     <div className='flex items-center justify-between p-2'>
                                         <div className='flex items-center gap-2'>

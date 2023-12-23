@@ -53,7 +53,7 @@ const Card = ({ id, title, tag, userId, status, priority }) => {
     }
 
     return (
-        <div className={`flex flex-col justify-center gap-2 py-3 px-5 w-[285px] rounded-md shadow-lg border-[0.5px] ${isDarkMode ? 'bg-[#161B22] border-[#414141]' : 'bg-white border-[#dedede]'}`}>
+        <div className={`flex flex-col justify-center gap-2 py-3 px-5 w-[100%] rounded-md shadow-lg border-[0.5px] ${isDarkMode ? 'bg-[#161B22] border-[#414141]' : 'bg-white border-[#dedede]'}`}>
             <div className='flex justify-between'>
                 <p className={`${isDarkMode ? 'text-[#8d8d8d]' : 'text-black'}`}>{id}</p>
                 <div className='flex items-center'>
