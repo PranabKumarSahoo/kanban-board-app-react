@@ -8,7 +8,7 @@
     - Hero
     - Header
 5. [Context](#context)
-    DisplayCardContext
+    - DisplayCardContext
 6. [Usage](#usage)
 7. [Features](#features)
 8. [External Dependencies](#external-dependencies)
