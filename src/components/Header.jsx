@@ -39,7 +39,7 @@ const Header = () => {
     }, []);
 
     return (
-        <div className={`flex justify-between p-4 px-5 shadow-sm bg-white ${isDarkMode ? 'bg-slate-900' : 'bg-white'}`
+        <div className={`flex justify-between p-4 px-5 shadow-sm ${isDarkMode ? 'bg-slate-900' : 'bg-white'}`
         }>
             <div className='relative' ref={dropdownRef}>
                 <button

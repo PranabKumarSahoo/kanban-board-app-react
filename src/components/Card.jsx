@@ -53,7 +53,7 @@ const Card = ({ id, title, tag, userId, status, priority }) => {
     }
 
     return (
-        <div className={`flex flex-col justify-center gap-2 py-3 px-5 w-[285px]  bg-white rounded-md shadow-lg border-[1px] border-[#e6e7eb] ${isDarkMode ? 'bg-[#04070C]' : 'bg-white'}`}>
+        <div className={`flex flex-col justify-center gap-2 py-3 px-5 w-[285px] rounded-md shadow-lg border-[0.5px] ${isDarkMode ? 'bg-[#161B22] border-[#414141]' : 'bg-white border-[#dedede]'}`}>
             <div className='flex justify-between'>
                 <p className={`${isDarkMode ? 'text-[#8d8d8d]' : 'text-black'}`}>{id}</p>
                 <div className='flex items-center'>
@@ -80,10 +80,10 @@ const Card = ({ id, title, tag, userId, status, priority }) => {
                 </p>
             </div>
             <div className='flex items-center gap-2 text-[#8D8D8D] text-sm'>
-                <div className='flex items-center py-[3px] px-[3px] border border-1 rounded-sm'>
+                <div className='flex items-center py-[3px] px-[3px] border-[#a1a1a1] border-[0.5px] rounded-sm'>
                     <GiNetworkBars />
                 </div>
-                <div className='flex items-center py-[0.5px] px-[3px] border border-1 rounded-sm'>
+                <div className='flex items-center py-[0.5px] px-[3px] border-[#a1a1a1] border-[0.5px] rounded-sm'>
                     <GoDotFill className='text-lg' />
                     <p className='text-[13.6px]'>{tag[0]}</p>
                 </div>
