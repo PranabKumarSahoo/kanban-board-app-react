@@ -9,12 +9,11 @@ const DisplayCardProvider = ({ children }) => {
     const storedOrdered = localStorage.getItem('isStoredOrdered');
     const storedUser = localStorage.getItem('isStoredUser');
 
-    console.log(storedUser);
 
-    const [isCards, setIsCards] = useState(storedCard ? JSON.parse(storedCard) : false);
+    const [isCards, setIsCards] = useState(storedCard ? JSON.parse(storedCard) : null);
     const [isFilter, setIsFilter] = useState(storedFilterd ? JSON.parse(storedFilterd) : 'Status');
     const [isOrdered, setIsOrdered] = useState(storedOrdered ? JSON.parse(storedOrdered) : 'Priority');
-    const [isUser, setIsUser] = useState(storedUser ? JSON.parse(storedUser) : []);
+    const [isUser, setIsUser] = useState(storedUser ? JSON.parse(storedUser) : null);
 
     const getFilter = (value) => {
         setIsFilter(value);
@@ -23,6 +22,30 @@ const DisplayCardProvider = ({ children }) => {
     const getOrdered = (value) => {
         setIsOrdered(value);
     }
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(
+                    'https://tfyincvdrafxe7ut2ziwuhe5cm0xvsdu.lambda-url.ap-south-1.on.aws/ticketAndUsers'
+                );
+                const result = await response.json();
+                setIsCards(result.tickets);
+                setIsUser(result.users);
+    
+                console.log('Data fetched successfully:', result);
+    
+                localStorage.setItem('isStoredCards', JSON.stringify(result.tickets));
+                localStorage.setItem('isStoredUser', JSON.stringify(result.users));
+    
+                console.log('Data stored in localStorage.');
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchData();
+    }, []);
 
     // initial states
     const value = {

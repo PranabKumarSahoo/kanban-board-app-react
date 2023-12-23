@@ -12,30 +12,26 @@ const Card = ({ id, title, tag, userId, status, priority }) => {
 
     const { isFilter, isUser } = useCards();
 
-    console.log(isUser);
+    const user = isUser.find((user) => user.id === userId);
 
-    // const { id, title, tag, priority, userId } = card;
+    const getUserInitials = (name) => {
+        const nameArray = name.split(' ');
+        const initials = nameArray.map((word) => word.charAt(0).toUpperCase());
+        return initials.join('');
+    };
 
-    // const user = users.find((user) => user.id === userId);
+    const userNameInitials = getUserInitials(user.name);
 
-    // const getUserInitials = (name) => {
-    //     const nameArray = name.split(' ');
-    //     const initials = nameArray.map((word) => word.charAt(0).toUpperCase());
-    //     return initials.join('');
-    // };
+    const getRandomColor = () => {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    };
 
-    // const userNameInitials = user ? getUserInitials(user.name) : 'O';
-
-    // const getRandomColor = () => {
-    //     const letters = '0123456789ABCDEF';
-    //     let color = '#';
-    //     for (let i = 0; i < 6; i++) {
-    //         color += letters[Math.floor(Math.random() * 16)];
-    //     }
-    //     return color;
-    // };
-
-    // const randomColor = getRandomColor();
+    const randomColor = getRandomColor();
 
     const getStatusIcon = (status) => {
         switch (status) {
@@ -58,14 +54,17 @@ const Card = ({ id, title, tag, userId, status, priority }) => {
         <div className='flex flex-col justify-center gap-2 py-3 px-5 w-[285px]  bg-white rounded-md shadow-lg border-2 border-[#e6e7eb]'>
             <div className='flex justify-between'>
                 <p className='text-[#8D8D8D]'>{id}</p>
-                {/* <div className='flex items-center'>
-                    <p
-                        className='text-[9px] font-semibold text-white inline-flex items-center justify-center h-5 w-5 rounded-[50%]'
-                        style={{ backgroundColor: randomColor }}
-                    >
-                        {userNameInitials}
-                    </p>
-                </div> */}
+                <div className='flex items-center'>
+                    {
+                        isFilter !== "User" ?
+                            <p
+                                className='text-[9px] font-semibold text-white inline-flex items-center justify-center h-5 w-5 rounded-[50%]'
+                                style={{ backgroundColor: randomColor }}
+                            >
+                                {userNameInitials}
+                            </p> : ''
+                    }
+                </div>
             </div>
             <div>
                 <p className='flex gap-2 text-[15px] text-[#373737] font-semibold leading-tight'>
