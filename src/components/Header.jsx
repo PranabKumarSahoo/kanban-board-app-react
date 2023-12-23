@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { GiSettingsKnobs } from "react-icons/gi";
 import { IoIosArrowDown } from "react-icons/io";
 import { useCards } from "../context/DisplayCardContext";
 
 const Header = () => {
-
     const { getFilter, isFilter } = useCards();
-
     const [open, setOpen] = useState(false);
+    const dropdownRef = useRef(null);
 
     const handleClick = () => {
         setOpen(!open);
@@ -17,9 +16,23 @@ const Header = () => {
         getFilter(value);
     }
 
+    const handleOutsideClick = (e) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+            setOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener("mousedown", handleOutsideClick);
+
+        return () => {
+            document.removeEventListener("mousedown", handleOutsideClick);
+        };
+    }, []);
+
     return (
         <div className='flex justify-between p-4 px-5 shadow-sm bg-white'>
-            <div className='relative'>
+            <div className='relative' ref={dropdownRef}>
                 <button
                     className='flex items-center gap-3 w-[100%] text-md px-2 py-1 rounded-md shadow-md border-2 text-[#626262] bg-white'
                     onClick={handleClick}
