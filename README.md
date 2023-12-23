@@ -54,10 +54,10 @@ The project has the following folder structure:
 ...other files
 
 ## Components
-**Hero**
-The Hero component is the main display component that renders Kanban cards based on their status, user, or priority. It utilizes React Context to manage state related to cards, filters, and ordering.
+**Hero:**
+- The Hero component is the main display component that renders Kanban cards based on their status, user, or priority. It utilizes React Context to manage state related to cards, filters, and ordering.
 
-**Usage:**
+**Usage**
 ```js
 import { Hero } from './components';
 import { DisplayCardProvider } from './context/DisplayCardContext';
@@ -72,12 +72,12 @@ const App = () => {
 ```
 
 
-**Key Features:**
+**Key Features**
 - Dynamic rendering of cards based on filtering and ordering options.
 - Icons representing different card statuses.
 
-**Header**
-The Header component provides a user interface for changing display settings such as grouping and ordering. It uses React Context to manage global state for filtering and ordering options.
+**Header:**
+- The Header component provides a user interface for changing display settings such as grouping and ordering. It uses React Context to manage global state for filtering and ordering options.
 
 **State**
 - open: Boolean representing the dropdown menu's visibility.
@@ -87,7 +87,7 @@ Methods
 `handleOrderChange(value: string)`: Updates the order option based on user selection.
 `handleOutsideClick(e: Event)`: Closes the dropdown menu when clicking outside.
 
-**Usage:**
+**Usage**
 ```js
 import { Header } from './components';
 
@@ -101,7 +101,7 @@ const App = () => {
 };
 ```
 
-**Key Features:**
+**Key Features**
 - Dropdown menu for selecting grouping and ordering options.
 - Dynamically updates the display based on user selections.
 
@@ -135,9 +135,9 @@ const ExampleComponent = () => {
 ## External API
 The application fetches task data from an external API:
 
-Url: https://tfyincvdrafxe7ut2ziwuhe5cm0xvsdu.lambda-url.ap-south-1.on.aws/ticketAndUsers
+**Url**: https://tfyincvdrafxe7ut2ziwuhe5cm0xvsdu.lambda-url.ap-south-1.on.aws/ticketAndUsers
 
-Response: JSON object containing tickets and users.
+**Response**: JSON object containing tickets and users.
 
 ## Local Storage
 The application persists user preferences, including card data, filtering, ordering, and user-related information, in the browser's local storage. This ensures that user preferences are maintained across sessions.
