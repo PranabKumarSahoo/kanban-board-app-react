@@ -54,7 +54,7 @@ The project has the following folder structure:
 ...other files
 
 ## Components
-**Hero:**
+**1. Hero:**
 - The Hero component is the main display component that renders Kanban cards based on their status, user, or priority. It utilizes React Context to manage state related to cards, filters, and ordering.
 
 **Usage**
@@ -76,7 +76,7 @@ const App = () => {
 - Dynamic rendering of cards based on filtering and ordering options.
 - Icons representing different card statuses.
 
-**Header:**
+**2. Header:**
 - The Header component provides a user interface for changing display settings such as grouping and ordering. It uses React Context to manage global state for filtering and ordering options.
 
 **State**
