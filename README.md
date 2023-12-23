@@ -19,19 +19,27 @@ A React-based Kanban board application that interacts with the provided API to d
 ## Installation
 1. Clone the repository:
 
-    ```git clone https://github.com/PranabKumarSahoo/kanban-board-app-react.git```
+```
+git clone https://github.com/PranabKumarSahoo/kanban-board-app-react.git
+```
 
 5. Navigate to the project directory:
 
-    ```cd kanban-board-app-react```
+```
+cd kanban-board-app-react
+```
 
 5. Install dependencies:
 
-    ```npm install```
+```
+npm install
+```
 
 7. Start the development server:
 
-    ```npm run dev```
+```
+npm run dev
+```
 
 ## Folder Structure
 The project has the following folder structure:
