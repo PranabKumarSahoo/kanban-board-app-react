@@ -1,17 +1,17 @@
 # Kanban Board App
 
 ## Table of Contents
-1. Introduction
-2. Installation
-3. Folder Structure
-4. Components
+1. [Introduction](#introduction)
+2. [Installation](#installation)
+3. [Folder Structure](#folder-structure)
+4. [Components](#components)
     Hero
     Header
-5. Context
+5. [Context](#context)
     DisplayCardContext
-6. Usage
-7. Features
-8. External Dependencies
+6. [Usage](#usage)
+7. [Features](#features)
+8. [External Dependencies](#external-dependencies)
 
 ## Introduction
 A React-based Kanban board application that interacts with the provided API to display and organize tickets. The app allows users to dynamically adjust the Kanban board based on three grouping options: Status, User, and Priority. Additionally, users can sort tickets by Priority or Title. The application is designed to be visually appealing, responsive, and it saves the user's view state even after a page reload.
