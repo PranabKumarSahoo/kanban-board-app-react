@@ -105,11 +105,14 @@ const Hero = () => {
                 cardsArray.map((item, index) => (
                     <div
                         key={index}
-                        className='flex flex-col gap-4 h-auto md:h-[92vh] w-full md:w-[285px]'
+                        className='flex flex-col gap-2 h-auto md:h-[92vh] w-full md:w-[285px]'
                     >
-                        <div className='flex items-center justify-between'>
+                        <div className='flex items-center justify-between p-2'>
                             <div className='flex items-center gap-2'>
-                                <span className={`${item === "In progress" ? '-rotate-[130deg]' : ''}`}>{getStatusIcon(item)}</span>
+                                <span
+                                    className={`${item === "In progress" ? '-rotate-[135deg]' : ''}`}>
+                                    {getStatusIcon(item)}
+                                </span>
                                 <span className='text-[#373737] font-semibold'>{item}</span>
                                 <span className='text-[#808080]'>{groupedCards[item]?.length || 0}</span>
                             </div>

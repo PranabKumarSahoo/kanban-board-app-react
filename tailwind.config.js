@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       boxShadow: {
-        'md': '0 0 5px rgba(0, 0, 0, 0.2)'
+        'md': '0 0 5px rgba(0, 0, 0, 0.1)',
+        'lg': '0 0 8px 0 rgba(0, 0, 0, 0.1)'
       }
     },
   },

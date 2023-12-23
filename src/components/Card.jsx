@@ -53,7 +53,7 @@ const Card = ({ id, title, tag, userId, status, priority }) => {
     }
 
     return (
-        <div className='flex flex-col justify-center gap-2 py-3 px-5 w-[285px]  bg-white rounded-md shadow-md'>
+        <div className='flex flex-col justify-center gap-2 py-3 px-5 w-[285px]  bg-white rounded-md shadow-lg border-2 border-[#e6e7eb]'>
             <div className='flex justify-between'>
                 <p className='text-[#8D8D8D]'>{id}</p>
                 {/* <div className='flex items-center'>
@@ -66,10 +66,12 @@ const Card = ({ id, title, tag, userId, status, priority }) => {
                 </div> */}
             </div>
             <div>
-                <p className='text-[15px] text-[#373737] font-semibold leading-tight'>
+                <p className='flex gap-2 text-[15px] text-[#373737] font-semibold leading-tight'>
                     {
                         isFilter !== "Status" ?
-                            <span>{getStatusIcon(status)}</span> : ''
+                            <span className='felx relative top-[3px]'>
+                                {getStatusIcon(status)}
+                            </span> : ''
                     }
                     <span>{title}</span>
                 </p>
@@ -78,7 +80,7 @@ const Card = ({ id, title, tag, userId, status, priority }) => {
                 <div className='flex items-center py-[3px] px-[3px] border border-1 rounded-sm'>
                     <GiNetworkBars />
                 </div>
-                <div className='flex items-center py-[1px] px-[3px] border border-1 rounded-sm'>
+                <div className='flex items-center py-[0.5px] px-[3px] border border-1 rounded-sm'>
                     <GoDotFill className='text-lg' />
                     <p className='text-[13.6px]'>{tag[0]}</p>
                 </div>
