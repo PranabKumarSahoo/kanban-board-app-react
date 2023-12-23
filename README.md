@@ -45,13 +45,13 @@ npm run dev
 The project has the following folder structure:
 
 **src**
-- components: Contains React components used in the app.
-- context: Manages global state using React Context API.
-- pages: Contains the main pages of the app.
-- styles: Holds global styles for the app.
-- App.jsx: Main entry point for the app.
-- main.jsx: Renders the app into the DOM.
-...other files
+- **components:** Contains React components used in the app.
+- **context:** Manages global state using React Context API.
+- **pages:** Contains the main pages of the app.
+- **styles:** Holds global styles for the app.
+- **App.jsx:** Main entry point for the app.
+- **main.jsx:** Renders the app into the DOM.
+- ...other files
 
 ## Components
 **1. Hero:**
