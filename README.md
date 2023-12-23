@@ -5,8 +5,8 @@
 2. [Installation](#installation)
 3. [Folder Structure](#folder-structure)
 4. [Components](#components)
-    Hero
-    Header
+    - Hero
+    - Header
 5. [Context](#context)
     DisplayCardContext
 6. [Usage](#usage)
