@@ -39,12 +39,12 @@ const Header = () => {
     }, []);
 
     return (
-        <div className={`flex justify-between p-4 px-5 shadow-sm ${isDarkMode ? 'bg-slate-900' : 'bg-white'}`
+        <div className={`flex justify-between p-4 px-5 shadow-sm ${isDarkMode ? 'bg-[#161B22]' : 'bg-white'}`
         }>
             <div className='relative' ref={dropdownRef}>
                 <button
                     className={`flex items-center gap-3 w-[100%] text-md px-2 py-1 rounded-md 
-                    ${isDarkMode ? 'bg-slate-900 shadow-md shadow-gray-500 border-2 border-gray-500 text-white' : 'bg-white shadow-md border-2 text-[#626262]'}`}
+                    ${isDarkMode ? 'bg-[#161B22] shadow-md shadow-gray-500 border-2 border-gray-500 text-white' : 'bg-white shadow-md border-2 text-[#626262]'}`}
                     onClick={handleClick}
                 >
                     <span className='rotate-90'><GiSettingsKnobs /></span>
@@ -55,13 +55,13 @@ const Header = () => {
                     open ?
                         <>
                             <div
-                                className={`absolute top-11 flex flex-col gap-3 shadow-md w-[220px] md:w-[310px] h-[110px] md:h-[110px] md:p-4 p-3 rounded-md ${isDarkMode ? 'bg-slate-900 text-white border-1 border-gray-500 shadow-md shadow-gray-500' : 'bg-white'}`}
+                                className={`absolute top-11 flex flex-col gap-3 shadow-md w-[220px] md:w-[310px] h-[110px] md:h-[110px] md:p-4 p-3 rounded-md ${isDarkMode ? 'bg-[#161B22] text-white border-1 border-gray-500 shadow-md shadow-gray-500' : 'bg-white'}`}
                             >
                                 <div className='flex justify-between items-center overflow-hidden'>
                                     <p className='text-[#8D8D8D]'>Grouping</p>
                                     <select
                                         className={`border border-1 px-4 py-1 rounded-md outline-none 
-                                        ${isDarkMode ? 'bg-slate-900 text-white' : 'bg-white'}`}
+                                        ${isDarkMode ? 'bg-[#161B22] text-white' : 'bg-white'}`}
                                         onChange={(e) => handleGroupChange(e.target.value)}
                                         value={isFilter}
                                     >
@@ -74,7 +74,7 @@ const Header = () => {
                                     <p className='text-[#8D8D8D]'>Ordering</p>
                                     <select
                                         className={`border border-1 px-4 py-1 rounded-md outline-none 
-                                       ${isDarkMode ? 'bg-slate-900 text-white' : 'bg-white'}`}
+                                       ${isDarkMode ? 'bg-[#161B22] text-white' : 'bg-white'}`}
                                         onChange={(e) => handleOrderChange(e.target.value)}
                                         value={isOrdered}
                                         disabled

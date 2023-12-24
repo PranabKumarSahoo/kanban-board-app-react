@@ -11,7 +11,7 @@ import { useTheme } from '../context/ThemeContext';
 
 const Hero = () => {
 
-    const { isCards, isFilter, isOrdered } = useCards();
+    const { isCards, isFilter, isOrdered, isUser } = useCards();
 
     const { isDarkMode } = useTheme();
 
@@ -45,6 +45,11 @@ const Hero = () => {
             default:
                 return null;
         }
+    }
+
+    function getUserName(userId) {
+        const user = isUser.find(u => u.id === userId);
+        return user ? user.name : "User not found";
     }
 
     useEffect(() => {
@@ -107,25 +112,38 @@ const Hero = () => {
 
     return (
         <div
-            className={`flex flex-col md:flex-row justify-between py-4 px-5 h-[100%] ${isDarkMode ? 'bg-black' : 'bg-[#f4f5f8] text-black'}`}
+            className={`flex flex-col md:flex-wrap md:flex-row md:justify-between py-4 px-5 h-[100%] ${isDarkMode ? 'bg-black' : 'bg-[#f4f5f8] text-black'}`}
         >
             {
-                !groupedCards ? <Spinner /> :
+                Object.keys(groupedCards).length > 0 ?
                     <>
                         {
                             cardsArray.map((item, index) => (
                                 <div
                                     key={index}
-                                    className={`flex flex-col gap-2 h-[100%] md:h-[92vh] w-full md:w-[285px] ${isDarkMode ? 'bg-black' : 'text-black'}`}
+                                    className={`flex flex-col gap-2 h-[100%] md:h-[100vh] w-full md:w-[360px] lg:w-[285px] ${isDarkMode ? 'bg-black' : 'text-black'}`}
                                 >
                                     <div className='flex items-center justify-between p-2'>
                                         <div className='flex items-center gap-2'>
-                                            <span
-                                                className={`${item === "In progress" ? '-rotate-[135deg]' : ''}`}>
-                                                {getStatusIcon(item)}
-                                            </span>
-                                            <span className={`font-semibold ${isDarkMode ? 'text-[#808080]' : 'text-black'}`}>{item}</span>
-                                            <span className='text-[#808080]'>{groupedCards[item]?.length || 0}</span>
+                                            {isFilter === "User" ? (
+                                                <>
+                                                    <span className={`font-semibold ${isDarkMode ? 'text-white' : 'text-black'}`}>
+                                                        {getUserName(item)}
+                                                    </span>
+                                                    <span className='text-[#808080]'>{groupedCards[item]?.length || 0}</span>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <span
+                                                        className={`${item === "In progress" ? '-rotate-[135deg]' : ''}`}>
+                                                        {getStatusIcon(item)}
+                                                    </span>
+                                                    <span className={`font-semibold ${isDarkMode ? 'text-[#808080]' : 'text-black'}`}>
+                                                        {item}
+                                                    </span>
+                                                    <span className='text-[#808080]'>{groupedCards[item]?.length || 0}</span>
+                                                </>
+                                            )}
                                         </div>
                                         <div className='flex gap-1'>
                                             <span className='text-[#808080] text-sm'><FaPlus /></span>
@@ -143,7 +161,10 @@ const Hero = () => {
                                 </div>
                             ))
                         }
-                    </>
+                    </> :
+                    <div className='flex items-center justify-center w-full'>
+                        <Spinner />
+                    </div>
             }
         </div >
     )
