@@ -55,6 +55,7 @@ The project has the following folder structure:
 ## Components
 
 **Usage**
+
 `main.js`
 ```js
 import React from 'react'
