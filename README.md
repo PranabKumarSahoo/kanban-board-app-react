@@ -108,10 +108,10 @@ export default App;
 **State**
 - open: Boolean representing the dropdown menu's visibility.
 Methods
-`handleClick()`: Toggles the visibility of the dropdown menu.
-`handleGroupChange(value: string)`: Updates the filter option based on user selection.
-`handleOrderChange(value: string)`: Updates the order option based on user selection.
-`handleOutsideClick(e: Event)`: Closes the dropdown menu when clicking outside.
+- `handleClick()`: Toggles the visibility of the dropdown menu.
+- `handleGroupChange(value: string)`: Updates the filter option based on user selection.
+- `handleOrderChange(value: string)`: Updates the order option based on user selection.
+- `handleOutsideClick(e: Event)`: Closes the dropdown menu when clicking outside.
 
 **Key Features**
 - Dropdown menu for selecting grouping and ordering options.
