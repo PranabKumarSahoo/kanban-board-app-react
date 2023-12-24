@@ -159,7 +159,8 @@ To use the React Kanban app, follow these steps:
 ### Sorting Options
 **1. Priority:** Arrange tickets in descending order of priority.
 **2. Title:** Sort tickets in ascending order based on their title.
-(Unfortunately, I couldn't able to do this ordering functionality.)
+
+**(Unfortunately, I couldn't able to do this ordering functionality.)**
 
 ### Responsive Design
 The Kanban board is designed to be visually appealing and responsive, ensuring a seamless user experience across different devices.
