@@ -119,7 +119,7 @@ Methods
 - Dynamically updates the display based on user selections.
 
 ## Context
-DisplayCardContext
+**DisplayCardContext:**
 The `DisplayCardContext` manages global state for the React Kanban app. It includes the following state variables:
 
 - `isCards`: An array containing Kanban cards.
