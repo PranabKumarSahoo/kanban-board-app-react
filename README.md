@@ -165,13 +165,13 @@ To use the React Kanban app, follow these steps:
 
 ## Features
 ### Grouping Options
-**1. By Status:** Group tickets based on their current status.
-**2. By User:** Arrange tickets according to the assigned user.
-**3. By Priority:** Group tickets based on their priority level.
+**1. By Status**: Group tickets based on their current status.
+**2. By User**: Arrange tickets according to the assigned user.
+**3. By Priority**: Group tickets based on their priority level.
 
 ### Sorting Options
-**1. Priority:** Arrange tickets in descending order of priority.
-**2. Title:** Sort tickets in ascending order based on their title.
+**1. Priority**: Arrange tickets in descending order of priority.
+**2. Title**: Sort tickets in ascending order based on their title.
 
 **(Unfortunately, Due to lack of time I couldn't able to do this ordering functionality.)**
 
