@@ -9,13 +9,10 @@ const DisplayCardProvider = ({ children }) => {
     const storedOrdered = localStorage.getItem('isStoredOrdered');
     const storedUser = localStorage.getItem('isStoredUser');
 
-
     const [isCards, setIsCards] = useState(storedCard ? JSON.parse(storedCard) : null);
     const [isFilter, setIsFilter] = useState(storedFilterd ? JSON.parse(storedFilterd) : 'Status');
     const [isOrdered, setIsOrdered] = useState(storedOrdered ? JSON.parse(storedOrdered) : 'Priority');
     const [isUser, setIsUser] = useState(storedUser ? JSON.parse(storedUser) : null);
-
-    // console.log(isUser);
 
     const getFilter = (value) => {
         setIsFilter(value);
@@ -36,12 +33,9 @@ const DisplayCardProvider = ({ children }) => {
                 setIsCards(result.tickets);
                 setIsUser(result.users);
     
-                // console.log('Data fetched successfully:', result);
-    
                 localStorage.setItem('isStoredCards', JSON.stringify(result.tickets));
                 localStorage.setItem('isStoredUser', JSON.stringify(result.users));
     
-                // console.log('Data stored in localStorage.');
             } catch (error) {
                 console.error('Error fetching data:', error);
             }

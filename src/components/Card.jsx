@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { GoDotFill } from 'react-icons/go';
 import { GiNetworkBars } from 'react-icons/gi';
 import { TbCircleDotted } from "react-icons/tb";
@@ -7,33 +7,13 @@ import { FaCircleXmark } from "react-icons/fa6";
 import { ImPacman } from "react-icons/im";
 import { useCards } from '../context/DisplayCardContext';
 import { useTheme } from '../context/ThemeContext';
+import UserProfile from './UserProfile';
 
-const Card = ({ id, title, tag, userId, status, priority }) => {
+const Card = ({ id, title, tag, userId, status }) => {
 
-    const { isFilter, isUser } = useCards();
+    const { isFilter } = useCards();
 
     const { isDarkMode } = useTheme();
-
-    const user = isUser.find((user) => user.id === userId);
-
-    const getUserInitials = (name) => {
-        const nameArray = name.split(' ');
-        const initials = nameArray.map((word) => word.charAt(0).toUpperCase());
-        return initials.join('');
-    };
-
-    const userNameInitials = getUserInitials(user.name);
-
-    const getRandomColor = () => {
-        const letters = '0123456789ABCDEF';
-        let color = '#';
-        for (let i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
-    };
-
-    const randomColor = getRandomColor();
 
     const getStatusIcon = (status) => {
         switch (status) {
@@ -59,12 +39,9 @@ const Card = ({ id, title, tag, userId, status, priority }) => {
                 <div className='flex items-center'>
                     {
                         isFilter !== "User" ?
-                            <p
-                                className='text-[9px] font-semibold text-white inline-flex items-center justify-center h-5 w-5 rounded-[50%]'
-                                style={{ backgroundColor: randomColor }}
-                            >
-                                {userNameInitials}
-                            </p> : ''
+                            <UserProfile
+                                userId={userId}
+                            /> : ''
                     }
                 </div>
             </div>

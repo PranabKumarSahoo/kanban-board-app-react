@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react'
 import Card from '../components/Card';
 import { useCards } from '../context/DisplayCardContext';
 import { TbCircleDotted } from 'react-icons/tb';
+import { GiNetworkBars } from 'react-icons/gi';
 import { FaRegCircle, FaCheckCircle } from "react-icons/fa";
 import { FaCircleXmark, FaPlus } from "react-icons/fa6";
 import { HiDotsHorizontal } from "react-icons/hi";
 import { ImPacman } from "react-icons/im";
 import Spinner from '../components/Spinner';
 import { useTheme } from '../context/ThemeContext';
+import UserProfile from '../components/UserProfile';
 
 const Hero = () => {
 
@@ -42,6 +44,23 @@ const Hero = () => {
                 return <FaCheckCircle className='text-[#384BB5]' />
             case "Cancelled":
                 return <FaCircleXmark className='text-[#808080]' />
+            default:
+                return null;
+        }
+    }
+
+    const getPriorityName = (item) => {
+        switch (item) {
+            case 0:
+                return "No Priority";
+            case 1:
+                return "Low";
+            case 2:
+                return "Medium";
+            case 3:
+                return "High";
+            case 4:
+                return "Urgent";
             default:
                 return null;
         }
@@ -125,14 +144,8 @@ const Hero = () => {
                                 >
                                     <div className='flex items-center justify-between p-2'>
                                         <div className='flex items-center gap-2'>
-                                            {isFilter === "User" ? (
-                                                <>
-                                                    <span className={`font-semibold ${isDarkMode ? 'text-white' : 'text-black'}`}>
-                                                        {getUserName(item)}
-                                                    </span>
-                                                    <span className='text-[#808080]'>{groupedCards[item]?.length || 0}</span>
-                                                </>
-                                            ) : (
+                                            {
+                                                isFilter === "Status" &&
                                                 <>
                                                     <span
                                                         className={`${item === "In progress" ? '-rotate-[135deg]' : ''}`}>
@@ -143,7 +156,32 @@ const Hero = () => {
                                                     </span>
                                                     <span className='text-[#808080]'>{groupedCards[item]?.length || 0}</span>
                                                 </>
-                                            )}
+                                            }
+                                            {
+                                                isFilter === "User" &&
+                                                <div className='flex items-center justify-center gap-2'>
+                                                    <UserProfile
+                                                        userId={item}
+                                                    />
+                                                    <span className={`font-semibold ${isDarkMode ? 'text-white' : 'text-black'}`}>
+                                                        {getUserName(item)}
+                                                    </span>
+                                                    <span className='text-[#808080]'>{groupedCards[item]?.length || 0}</span>
+                                                </div>
+                                            }
+                                            {
+                                                isFilter === "Priority" &&
+                                                <div className='flex items-center justify-center gap-2'>
+                                                    <span
+                                                        className={`${item === "In progress" ? '-rotate-[135deg]' : ''}`}>
+                                                        <GiNetworkBars />
+                                                    </span>
+                                                    <span className={`font-semibold ${isDarkMode ? 'text-white' : 'text-black'}`}>
+                                                        {getPriorityName(item)}
+                                                    </span>
+                                                    <span className='text-[#808080]'>{groupedCards[item]?.length || 0}</span>
+                                                </div>
+                                            }
                                         </div>
                                         <div className='flex gap-1'>
                                             <span className='text-[#808080] text-sm'><FaPlus /></span>
