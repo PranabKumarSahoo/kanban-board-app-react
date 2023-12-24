@@ -48,29 +48,55 @@ The project has the following folder structure:
 - **components:** Contains React components used in the app.
 - **context:** Manages global state using React Context API.
 - **pages:** Contains the main pages of the app.
-- **styles:** Holds global styles for the app.
 - **App.jsx:** Main entry point for the app.
 - **main.jsx:** Renders the app into the DOM.
 - ...other files
 
 ## Components
-**1. Hero:**
-- The Hero component is the main display component that renders Kanban cards based on their status, user, or priority. It utilizes React Context to manage state related to cards, filters, and ordering.
 
 **Usage**
+
+`main.js`
 ```js
-import { Hero } from './components';
-import { DisplayCardProvider } from './context/DisplayCardContext';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import './index.css'
+import { DisplayCardProvider } from './context/DisplayCardContext.jsx'
+import { ThemeProvider } from './context/ThemeContext.jsx'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <ThemeProvider>
+      <DisplayCardProvider>
+        <App />
+      </DisplayCardProvider>
+    </ThemeProvider>
+  </React.StrictMode>,
+)
+```
+
+`App.js`
+```js
+import React from 'react'
+import Header from './components/Header';
+import Hero from './pages/Hero';
 
 const App = () => {
   return (
-    <DisplayCardProvider>
+    <div>
+      <Header />
+
       <Hero />
-    </DisplayCardProvider>
-  );
-};
+    </div>
+  )
+}
+
+export default App;
 ```
 
+**1. Hero:**
+- The Hero component is the main display component that renders Kanban cards based on their status, user, or priority. It utilizes React Context to manage state related to cards, filters, and ordering.
 
 **Key Features**
 - Dynamic rendering of cards based on filtering and ordering options.
@@ -86,20 +112,6 @@ Methods
 `handleGroupChange(value: string)`: Updates the filter option based on user selection.
 `handleOrderChange(value: string)`: Updates the order option based on user selection.
 `handleOutsideClick(e: Event)`: Closes the dropdown menu when clicking outside.
-
-**Usage**
-```js
-import { Header } from './components';
-
-const App = () => {
-  return (
-    <div>
-      <Header />
-      {/* Other components */}
-    </div>
-  );
-};
-```
 
 **Key Features**
 - Dropdown menu for selecting grouping and ordering options.
@@ -160,7 +172,7 @@ To use the React Kanban app, follow these steps:
 **1. Priority:** Arrange tickets in descending order of priority.
 **2. Title:** Sort tickets in ascending order based on their title.
 
-**(Unfortunately, I couldn't able to do this ordering functionality.)**
+**(Unfortunately, Due to lack of time I couldn't able to do this ordering functionality.)**
 
 ### Responsive Design
 The Kanban board is designed to be visually appealing and responsive, ensuring a seamless user experience across different devices.
