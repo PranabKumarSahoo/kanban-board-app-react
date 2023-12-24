@@ -107,6 +107,7 @@ export default App;
 
 **State**
 - open: Boolean representing the dropdown menu's visibility.
+- 
 Methods
 - `handleClick()`: Toggles the visibility of the dropdown menu.
 - `handleGroupChange(value: string)`: Updates the filter option based on user selection.
